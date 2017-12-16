@@ -19,11 +19,13 @@ mod tests {
 /// Sort an array in-place, worst case (O^2)
 pub fn insertion_sort<T: Ord>(arr: &mut [T]) {
     let (mut i, len) = (1, arr.len());
-    while i < len { // Outer loop (n)
+    while i < len {
+        // Outer loop (n)
         let mut j = i; // The sorted elements behind position i
         // Two elements are not present on the first iteration, skip swap
-        while j > 0 && arr[j-1] > arr[j] { // inner loop of first (n * n)
-            arr.swap(j, j-1);
+        while j > 0 && arr[j - 1] > arr[j] {
+            // inner loop of first (n * n)
+            arr.swap(j, j - 1);
             j -= 1;
         }
         i += 1; // Advance index of array
